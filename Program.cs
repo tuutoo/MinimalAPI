@@ -13,6 +13,7 @@ dbConnectionBuilder.Username = builder.Configuration["Username"];
 dbConnectionBuilder.Password = builder.Configuration["Password"];
 
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql(dbConnectionBuilder.ConnectionString));
+builder.Services.AddScoped<ICommandRepo, CommandRepo>();
 
 var app = builder.Build();
 

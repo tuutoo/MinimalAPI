@@ -8,7 +8,7 @@ namespace MinimalAPI.Data
 
     Task<Command?> GetCommandById(int id);
 
-    Task<IEnumerable<Command>?> GetAllCommand();
+    Task<IEnumerable<Command>?> GetAllCommands();
 
     Task CreateCommand(Command cmd);
 

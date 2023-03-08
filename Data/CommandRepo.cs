@@ -32,7 +32,7 @@ namespace MinimalAPI.Data
       _context.Remove(cmd);
     }
 
-    public async Task<IEnumerable<Command>?> GetAllCommand()
+    public async Task<IEnumerable<Command>?> GetAllCommands()
     {
       return await _context.Commands.ToListAsync();
     }

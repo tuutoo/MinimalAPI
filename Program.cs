@@ -29,12 +29,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("api/v1/commands", async (ICommandRepo repo, IMapper mapper) => {
+app.MapGet("api/v1/commands", async (ICommandRepo repo, IMapper mapper) =>
+{
     var commands = await repo.GetAllCommands();
     return Results.Ok(mapper.Map<IEnumerable<CommandReadDto>>(commands));
 });
 
-app.MapGet("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, int id) => {
+app.MapGet("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, int id) =>
+{
     var command = await repo.GetCommandById(id);
     if (command == null)
     {
@@ -43,7 +45,8 @@ app.MapGet("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, int
     return Results.Ok(mapper.Map<CommandReadDto>(command));
 });
 
-app.MapPost("api/v1/commands", async (ICommandRepo repo, IMapper mapper, CommandCreateDto commandCreateDto) => {
+app.MapPost("api/v1/commands", async (ICommandRepo repo, IMapper mapper, CommandCreateDto commandCreateDto) =>
+{
     var commandModel = mapper.Map<Command>(commandCreateDto);
 
     await repo.CreateCommand(commandModel);
@@ -54,7 +57,8 @@ app.MapPost("api/v1/commands", async (ICommandRepo repo, IMapper mapper, Command
     return Results.Created($"api/v1/commands/{cmdReadDto.Id}", cmdReadDto);
 });
 
-app.MapPut("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, int id, CommandUpdateDto commandUpdateDto) => {
+app.MapPut("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, int id, CommandUpdateDto commandUpdateDto) =>
+{
     var command = await repo.GetCommandById(id);
     if (command == null)
     {
@@ -68,7 +72,8 @@ app.MapPut("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, int
     return Results.NoContent();
 });
 
-app.MapDelete("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, int id) => {
+app.MapDelete("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, int id) =>
+{
     var command = await repo.GetCommandById(id);
     if (command == null)
     {

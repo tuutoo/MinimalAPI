@@ -4,15 +4,15 @@ using MinimalAPI.Models;
 
 namespace MinimalAPI
 {
-  public class CommandsProfile : Profile
-  {
-    public CommandsProfile()
+    public class CommandsProfile : Profile
     {
-      // Source -> Target
-      CreateMap<Command, CommandReadDto>().ReverseMap();
-      CreateMap<Command, CommandCreateDto>().ReverseMap();
-      CreateMap<Command, CommandUpdateDto>().ReverseMap();
+        public CommandsProfile()
+        {
+            // Source -> Target
+            CreateMap<Command, CommandReadDto>().ReverseMap();
+            CreateMap<Command, CommandCreateDto>().ReverseMap();
+            CreateMap<Command, CommandUpdateDto>().ReverseMap();
+        }
     }
-  }
 }
 

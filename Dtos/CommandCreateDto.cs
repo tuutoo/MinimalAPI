@@ -2,16 +2,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MinimalAPI.Dtos
 {
-  public class CommandCreateDto
-  {
-    [Required]
-    public string? HowTo { get; set; }
+    public class CommandCreateDto
+    {
+        [Required]
+        public string? HowTo { get; set; }
 
-    [Required]
-    [MaxLength(5)]
-    public string? Platform { get; set; }
+        [Required]
+        [MaxLength(5)]
+        public string? Platform { get; set; }
 
-    [Required]
-    public string? CommandLine { get; set; }
-  }
+        [Required]
+        public string? CommandLine { get; set; }
+    }
 }

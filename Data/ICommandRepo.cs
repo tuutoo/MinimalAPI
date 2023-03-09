@@ -4,7 +4,7 @@ namespace MinimalAPI.Data
 {
   public interface ICommandRepo
   {
-    Task SaveChanges();
+    Task SaveChangesAsync();
 
     Task<Command?> GetCommandById(int id);
 

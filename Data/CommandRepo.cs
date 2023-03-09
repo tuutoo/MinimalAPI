@@ -42,7 +42,7 @@ namespace MinimalAPI.Data
       return await _context.Commands.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task SaveChanges()
+    public async Task SaveChangesAsync()
     {
       await _context.SaveChangesAsync();
     }
